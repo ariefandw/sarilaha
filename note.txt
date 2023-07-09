@@ -1,0 +1,7 @@
+=== Menambah Menuu baru (Auto generate Controller + Model + Migration + Seed) ===
+php spark make:scaffold user
+
+
+=== Refresh Database ===
+php spark migrate:refresh --all
+php spark db:seed DatabaseSeeder
