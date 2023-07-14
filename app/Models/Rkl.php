@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class Rkl extends Model
 {
-    protected $table = 'your_table_name';
+    protected $table = 'rkl';
     protected $primaryKey = 'id';
     protected $allowedFields = [
         'tahapan',
@@ -23,4 +23,5 @@ class Rkl extends Model
     protected $useTimestamps = true;
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
+    protected $returnType = 'object';
 }

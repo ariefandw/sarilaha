@@ -193,31 +193,31 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= site_url('rkl'); ?>" class="nav-link <?= activeMenu('rkl') ?>">
+                            <a href="<?= site_url('rkl'); ?>" class="nav-link <?= activeMenu('tte') ?>">
                                 <i class="nav-icon fa-regular fa-circle"></i>
                                 <p>Tanda Terima Elektronik</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= site_url('rkl'); ?>" class="nav-link <?= activeMenu('rkl') ?>">
+                            <a href="<?= site_url('rkl'); ?>" class="nav-link <?= activeMenu('status') ?>">
                                 <i class="nav-icon fa-regular fa-circle"></i>
                                 <p>Status Pelaporan</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= site_url('rkl'); ?>" class="nav-link <?= activeMenu('rkl') ?>">
+                            <a href="<?= site_url('rkl'); ?>" class="nav-link <?= activeMenu('evaluasi') ?>">
                                 <i class="nav-icon fa-regular fa-circle"></i>
                                 <p>Evaluasi Kinerja</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= site_url('rkl'); ?>" class="nav-link <?= activeMenu('rkl') ?>">
+                            <a href="<?= site_url('rkl'); ?>" class="nav-link <?= activeMenu('download') ?>">
                                 <i class="nav-icon fa-regular fa-circle"></i>
                                 <p>Download</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= site_url('rkl'); ?>" class="nav-link <?= activeMenu('rkl') ?>">
+                            <a href="<?= site_url('rkl'); ?>" class="nav-link <?= activeMenu('manajemen') ?>">
                                 <i class="nav-icon fa-regular fa-circle"></i>
                                 <p>Manajemen</p>
                             </a>

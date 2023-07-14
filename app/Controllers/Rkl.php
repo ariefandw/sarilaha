@@ -7,20 +7,22 @@ use App\Controllers\BaseController;
 class Rkl extends BaseController
 {
     protected $prodiModel;
+    protected $rklModel;
 
     public function __construct()
     {
         $this->prodiModel = new \App\Models\Prodi();
+        $this->rklModel   = new \App\Models\Rkl();
     }
 
     public function getIndex()
     {
-        $data   = $this->request->getGet();
-        $q      = $data['q'] ?? '';
-        $prodis = $this->prodiModel->where("CONCAT(IFNULL(kode_prodi, ''), nama_prodi) LIKE '%{$q}%'")->paginate(30);
-        $data   = [
-            'rows'  => $prodis,
-            'pager' => $this->prodiModel->pager,
+        $data = $this->request->getGet();
+        $q    = $data['q'] ?? '';
+        $rkls = $this->rklModel->where("CONCAT(IFNULL(kegiatan, '')) LIKE '%{$q}%'")->paginate(15);
+        $data = [
+            'rows'  => $rkls,
+            'pager' => $this->rklModel->pager,
             'q'     => $q,
         ];
         return view('rkl/index', $data);
@@ -38,9 +40,15 @@ class Rkl extends BaseController
     public function postCreate()
     {
         $data = $this->request->getPost();
-        $this->prodiModel->insert($data);
+
+        $file    = $this->request->getFile('lampiran');
+        $newName = (new \Hidehalo\Nanoid\Client())->generateId() . '.' . $file->getExtension();
+        $file->move(ROOTPATH . 'public/uploads', $newName);
+
+        $data['lampiran'] = $newName;
+        $this->rklModel->insert($data);
         session()->setFlashdata('success', 'Data berhasil disimpan');
-        $this->response->redirect(site_url('prodi'));
+        $this->response->redirect(site_url('rkl'));
     }
 
     public function getEdit($id)

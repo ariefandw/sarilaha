@@ -9,19 +9,19 @@
                 <div class="card-body">
                     <div class="row" style="margin-right:-36px;">
                         <div class="col-md-5" style="
-                            background-color:#004366!important;
+                            background-color:#0C3005!important;
                             margin-left:-18px;
                             margin-top:-18px;
                             margin-bottom:-18px;
                             padding:20px;
                             border-top-left-radius: 0.375rem;
                             border-bottom-left-radius: 0.375rem;">
-                            <div class="text-md-left text-light">
+                            <div class="text-md-left text-light mt-5">
                                 <img class="mx-auto d-block" src="<?= base_url('img/logo.png') ?>" alt="logo" width="70px" height="70px">
                                 <div class="fs-6 mt-4 lh-1 text-center">
                                     <strong>Dinas Lingkungan Hidup</strong>
                                 </div>
-                                <div class="fs-6 mt-5 lh-1 text-center">
+                                <div class="fs-6 mt-2 lh-1 text-center">
                                     Provinsi Maluku Utara<br><br><br><br><br>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
 
                                 <!-- Email -->
                                 <div class="mb-2">
-                                    <input type="email" class="form-control" name="email" inputmode="email" autocomplete="email" placeholder="<?= lang('Auth.email') ?>" value="<?= old('email') ?? ($_SERVER['CI_ENVIRONMENT'] == 'development' ? 'admin_ilkom@demo.app' : '') ?>" required />
+                                    <input type="email" class="form-control" name="email" inputmode="email" autocomplete="email" placeholder="<?= lang('Auth.email') ?>" value="<?= old('email') ?? ($_SERVER['CI_ENVIRONMENT'] == 'development' ? 'admin@test.app' : '') ?>" required />
                                 </div>
 
                                 <!-- Password -->

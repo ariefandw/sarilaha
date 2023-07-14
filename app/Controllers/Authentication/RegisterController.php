@@ -117,9 +117,14 @@ class RegisterController extends BaseController
         }
 
         try {
+            $file    = $this->request->getFile('formulir_registrasi');
+            $newName = (new \Hidehalo\Nanoid\Client())->generateId() . '.' . $file->getExtension();
+            $file->move(ROOTPATH . 'public/uploads', $newName);
+
             $users->save($user);
-            $data            = $this->request->getPost();
-            $data['user_id'] = $users->getInsertID();
+            $data                        = $this->request->getPost();
+            $data['user_id']             = $users->getInsertID();
+            $data['formulir_registrasi'] = $newName;
             (new Perusahaan())->insert($data);
         } catch (ValidationException $e) {
             return redirect()->back()->withInput()->with('errors', $users->errors());
@@ -141,11 +146,8 @@ class RegisterController extends BaseController
                 $profile = (new Pegawai())->where('user_id', $user->id)->first();
                 break;
 
-            case 'user':
-                $profile = (new Perusahaan())->where('user_id', $user->id)->first();
-                break;
-
             default:
+                $profile = (new Perusahaan())->where('user_id', $user->id)->first();
                 break;
         }
         session()->set('user', [

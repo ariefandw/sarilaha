@@ -160,10 +160,10 @@
                 </div>
 
                 <div class="row mb-2">
-                    <label class="col-sm-4 col-form-label">Lapiran Formulir Registrasi *</label>
+                    <label class="col-sm-4 col-form-label">Lampiran Formulir Registrasi</label>
                     <div class="col-sm-8">
                         <input type="file" class="form-control" name="formulir_registrasi"
-                            value="<?= old('formulir_registrasi') ?>" required />
+                            value="<?= old('formulir_registrasi') ?>" />
                     </div>
                 </div>
 

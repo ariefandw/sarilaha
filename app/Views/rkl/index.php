@@ -23,8 +23,11 @@
         <table class="table table-sm table-hover">
             <tr>
                 <th scope="col">No</th>
-                <th scope="col">Kode Prodi</th>
-                <th scope="col">Nama Prodi</th>
+                <th scope="col">Tahapan</th>
+                <th scope="col">Kegiatan</th>
+                <th scope="col">Sumber Dampak</th>
+                <th scope="col">Jenis Limbah</th>
+                <th scope="col">Status</th>
                 <th scope="col">Aksi</th>
             </tr>
             <?php foreach ($rows as $row): ?>
@@ -33,15 +36,30 @@
                         <?= empty($no) ? $no = 1 + (($pager->getCurrentPage() - 1) * $pager->GetPerPage()) : ++$no; ?>
                     </th>
                     <td>
-                        <?= $row->kode_prodi; ?>
+                        <?= $row->tahapan; ?>
                     </td>
                     <td>
-                        <?= $row->nama_prodi; ?>
+                        <?= $row->kegiatan; ?>
+                    </td>
+                    <td>
+                        <?= $row->sumber_dampak; ?>
+                    </td>
+                    <td>
+                        <?= $row->jenis_limbah; ?>
+                    </td>
+                    <td>
+                        <?= $row->status ?>
                     </td>
                     <td>
                         <form method="post" action="<?= site_url('dosen/delete/' . $row->id); ?>"
                             onsubmit="return confirm('Apakah anda yakin akan menghapus data ini?')">
                             <div class="btn-group btn-group-sm" role="group">
+                                <button type="submit" class="btn btn-success">
+                                    approve
+                                </button>
+                                <button type="submit" class="btn btn-info">
+                                    tte
+                                </button>
                                 <a href="<?= site_url('dosen/edit/' . $row->id); ?>" class="btn btn-warning">
                                     <i class="fa-solid fa-pencil"></i>
                                 </a>
