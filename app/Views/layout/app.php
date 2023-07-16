@@ -192,7 +192,7 @@
                                 <p>RKL/RPL</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="<?= site_url('rkl'); ?>" class="nav-link <?= activeMenu('tte') ?>">
                                 <i class="nav-icon fa-regular fa-circle"></i>
                                 <p>Tanda Terima Elektronik</p>
@@ -221,7 +221,7 @@
                                 <i class="nav-icon fa-regular fa-circle"></i>
                                 <p>Manajemen</p>
                             </a>
-                        </li>
+                        </li> -->
                         <!-- <li class="nav-header">PENGUJIAN</li>
                         <li class="nav-item">
                             <a href="<?= site_url('ujian'); ?>" class="nav-link <?= activeMenu('ujian') ?>">

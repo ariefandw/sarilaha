@@ -45,7 +45,9 @@ class Rkl extends BaseController
         $newName = (new \Hidehalo\Nanoid\Client())->generateId() . '.' . $file->getExtension();
         $file->move(ROOTPATH . 'public/uploads', $newName);
 
-        $data['lampiran'] = $newName;
+        $data['lampiran']      = $newName;
+        $data['status']        = 'baru';
+        $data['perusahaan_id'] = session('user')['group'] == 'admin' ? 0 : session('user')['profile']->id;
         $this->rklModel->insert($data);
         session()->setFlashdata('success', 'Data berhasil disimpan');
         $this->response->redirect(site_url('rkl'));
@@ -54,7 +56,7 @@ class Rkl extends BaseController
     public function getEdit($id)
     {
         $data = [
-            'row'    => $this->prodiModel->find($id),
+            'row'    => $this->rklModel->find($id),
             'action' => 'update',
         ];
         return view('rkl/form', $data);
@@ -63,9 +65,17 @@ class Rkl extends BaseController
     public function postUpdate($id)
     {
         $data = $this->request->getPost();
-        $this->prodiModel->update($id, $data);
+
+        $file = $this->request->getFile('lampiran');
+        if ($file->isValid() && !$file->getError()) {
+            $newName = (new \Hidehalo\Nanoid\Client())->generateId() . '.' . $file->getExtension();
+            $file->move(ROOTPATH . 'public/uploads', $newName);
+            $data['lampiran'] = $newName;
+        }
+
+        $this->rklModel->update($id, $data);
         session()->setFlashdata('success', 'Data berhasil disimpan');
-        $this->response->redirect(site_url('prodi'));
+        $this->response->redirect(site_url('rkl'));
     }
 
     public function postDelete($id)

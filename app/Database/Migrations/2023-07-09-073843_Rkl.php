@@ -11,9 +11,12 @@ class Rkl extends Migration
         $this->forge->addField([
             'id'                     => [
                 'type'           => 'INT',
-                'constraint'     => 5,
                 'unsigned'       => true,
                 'auto_increment' => true,
+            ],
+            'perusahaan_id'          => [
+                'type'     => 'INT',
+                'unsigned' => true,
             ],
             'tahapan'                => [
                 'type'       => 'VARCHAR',
@@ -54,6 +57,11 @@ class Rkl extends Migration
             'lampiran'               => [
                 'type'       => 'VARCHAR',
                 'constraint' => 255,
+            ],
+            'drive_file_id'          => [
+                'type'       => 'VARCHAR',
+                'constraint' => '50',
+                'null'       => true,
             ],
             'status'                 => [
                 'type'       => 'VARCHAR',

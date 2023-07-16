@@ -48,19 +48,30 @@
                         <?= $row->jenis_limbah; ?>
                     </td>
                     <td>
-                        <?= $row->status ?>
+                        <?php if ($row->status == 'diterima'): ?>
+                            <span class="badge bg-success">
+                                <?= $row->status ?>
+                            </span>
+                        <?php elseif ($row->status == 'ditolak'): ?>
+                            <span class="badge bg-danger">
+                                <?= $row->status ?>
+                            </span>
+                        <?php else: ?>
+                            <span class="badge bg-primary">
+                                <?= $row->status ?>
+                            </span>
+                        <?php endif ?>
                     </td>
                     <td>
-                        <form method="post" action="<?= site_url('dosen/delete/' . $row->id); ?>"
+                        <form method="post" action="<?= site_url('rkl/delete/' . $row->id); ?>"
                             onsubmit="return confirm('Apakah anda yakin akan menghapus data ini?')">
                             <div class="btn-group btn-group-sm" role="group">
-                                <button type="submit" class="btn btn-success">
-                                    approve
-                                </button>
-                                <button type="submit" class="btn btn-info">
-                                    tte
-                                </button>
-                                <a href="<?= site_url('dosen/edit/' . $row->id); ?>" class="btn btn-warning">
+                                <?php if ($row->status == 'diterima'): ?>
+                                    <button type="submit" class="btn btn-info">
+                                        tte
+                                    </button>
+                                <?php endif ?>
+                                <a href="<?= site_url('rkl/edit/' . $row->id); ?>" class="btn btn-warning">
                                     <i class="fa-solid fa-pencil"></i>
                                 </a>
                                 <button type="submit" class="btn btn-danger">

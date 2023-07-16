@@ -9,6 +9,7 @@ class Rkl extends Model
     protected $table = 'rkl';
     protected $primaryKey = 'id';
     protected $allowedFields = [
+        'perusahaan_id',
         'tahapan',
         'kegiatan',
         'sumber_dampak',
@@ -19,6 +20,8 @@ class Rkl extends Model
         'cara_pemantauan',
         'tolok_ukur_pemantauan',
         'lampiran',
+        'drive_file_id',
+        'status',
     ];
     protected $useTimestamps = true;
     protected $createdField = 'created_at';
