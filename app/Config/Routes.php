@@ -31,6 +31,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('profil', 'Home::profil');
+$routes->post('updateprofil', 'Home::updateprofil');
 $routes->post('register', 'Authentication\RegisterController::registerAction');
 $routes->resource('api/prodi');
 

@@ -15,17 +15,24 @@ class Perusahaan extends Model
     protected $useSoftDeletes = false;
     protected $protectFields = true;
     protected $allowedFields = [
-        'user_id', 
-        'nama', 
-        'email', 
-        'password', 
-        'phone', 
-        'jabatan', 
-        'nama_perusahaan', 
-        'faks_perusahaan', 
-        'kode_kbli', 
-        'jenis_industri', 
-        'formulir_registrasi'
+        'user_id',
+        'nama',
+        'email',
+        'password',
+        'phone',
+        'jabatan',
+        'nama_holding',
+        'alamat_holding',
+        'phone_holding',
+        'faks_holding',
+        'nama_perusahaan',
+        'alamat_perusahaan',
+        'phone_perusahaan',
+        'faks_perusahaan',
+        'kota_perusahaan',
+        'kode_kbli',
+        'jenis_industri',
+        'formulir_registrasi',
     ];
 
     // Dates

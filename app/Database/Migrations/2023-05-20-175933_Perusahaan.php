@@ -38,13 +38,48 @@ class Perusahaan extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => 50,
             ],
+            'nama_holding'        => [
+                'type'       => 'VARCHAR',
+                'constraint' => 100,
+            ],
+            'alamat_holding'      => [
+                'type'       => 'VARCHAR',
+                'constraint' => 50,
+                'null'       => true,
+            ],
+            'phone_holding'       => [
+                'type'       => 'VARCHAR',
+                'constraint' => 50,
+                'null'       => true,
+            ],
+            'faks_holding'        => [
+                'type'       => 'VARCHAR',
+                'constraint' => 50,
+                'null'       => true,
+            ],
             'nama_perusahaan'     => [
                 'type'       => 'VARCHAR',
                 'constraint' => 100,
             ],
+            'alamat_perusahaan'   => [
+                'type'       => 'VARCHAR',
+                'constraint' => 50,
+                'null'       => true,
+            ],
+            'phone_perusahaan'    => [
+                'type'       => 'VARCHAR',
+                'constraint' => 50,
+                'null'       => true,
+            ],
             'faks_perusahaan'     => [
                 'type'       => 'VARCHAR',
                 'constraint' => 50,
+                'null'       => true,
+            ],
+            'kota_perusahaan'     => [
+                'type'       => 'VARCHAR',
+                'constraint' => 50,
+                'null'       => true,
             ],
             'kode_kbli'           => [
                 'type'       => 'VARCHAR',
