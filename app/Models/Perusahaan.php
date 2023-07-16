@@ -14,7 +14,19 @@ class Perusahaan extends Model
     protected $returnType = 'object';
     protected $useSoftDeletes = false;
     protected $protectFields = true;
-    protected $allowedFields = ['user_id', 'nama', 'email', 'password', 'phone', 'jabatan', 'nama_perusahaan', 'faks_perusahaan', 'kode_kbli', 'jenis_industri', 'formulir_registrasi'];
+    protected $allowedFields = [
+        'user_id', 
+        'nama', 
+        'email', 
+        'password', 
+        'phone', 
+        'jabatan', 
+        'nama_perusahaan', 
+        'faks_perusahaan', 
+        'kode_kbli', 
+        'jenis_industri', 
+        'formulir_registrasi'
+    ];
 
     // Dates
     protected $useTimestamps = true;

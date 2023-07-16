@@ -26,7 +26,7 @@ class Pegawai extends Seeder
             $prodi_id;
             switch ($i) {
                 case 1:
-                    $email = 'admin@demo.app';
+                    $email = 'admin@sarilaha.web.id';
                     $prodi_id = 1;
                     break;
                 case 2:

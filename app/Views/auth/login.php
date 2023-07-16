@@ -53,7 +53,7 @@
 
                                 <!-- Email -->
                                 <div class="mb-2">
-                                    <input type="email" class="form-control" name="email" inputmode="email" autocomplete="email" placeholder="<?= lang('Auth.email') ?>" value="<?= old('email') ?? ($_SERVER['CI_ENVIRONMENT'] == 'development' ? 'admin@test.app' : '') ?>" required />
+                                    <input type="email" class="form-control" name="email" inputmode="email" autocomplete="email" placeholder="<?= lang('Auth.email') ?>" value="<?= old('email') ?? ($_SERVER['CI_ENVIRONMENT'] == 'development' ? 'admin@sarilaha.web.id' : '') ?>" required />
                                 </div>
 
                                 <!-- Password -->
