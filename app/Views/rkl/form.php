@@ -13,8 +13,9 @@
             <div class="row mb-3">
                 <label for="tahapan" class="col-sm-2 col-form-label">Tahapan</label>
                 <div class="col-sm-10">
-                    <select class="form-select" name="tahapan">
-                        <!-- <option selected disabled>Select Tahapan</option> -->
+                    <input type="text" class="form-control" name="tahapan" placeholder="Tahapan"
+                        value="<?= $row->tahapan ?>">
+                    <!-- <select class="form-select" name="tahapan">
                         <option value="konstruksi" <?= $row->tahapan == 'konstruksi' ? 'selected' : '' ?>>
                             Konstruksi
                         </option>
@@ -24,7 +25,7 @@
                         <option value="paskaoperasi" <?= $row->tahapan == 'paskaoperasi' ? 'selected' : '' ?>>
                             Paska Operasi
                         </option>
-                    </select>
+                    </select> -->
                 </div>
             </div>
             <div class="row mb-3">
