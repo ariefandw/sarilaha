@@ -19,7 +19,9 @@ class Rkl extends BaseController
     {
         $data = $this->request->getGet();
         $q    = $data['q'] ?? '';
-        $rkls = $this->rklModel->where("CONCAT(IFNULL(kegiatan, '')) LIKE '%{$q}%'")->paginate(15);
+        $rkls = $this->rklModel->where("CONCAT(IFNULL(kegiatan, '')) LIKE '%{$q}%'");
+        if(session('user')['group'] == 'user') $rkls = $rkls->where('perusahaan_id', session('user')['profile']->id);
+        $rkls = $rkls->paginate(15);
         $data = [
             'rows'  => $rkls,
             'pager' => $this->rklModel->pager,

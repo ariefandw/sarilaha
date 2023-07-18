@@ -180,12 +180,14 @@
                                 <p>Beranda</p>
                             </a>
                         </li>
+                        <?php if(session('user')['group'] == 'user'): ?>
                         <li class="nav-item">
                             <a href="<?= site_url('profil'); ?>" class="nav-link <?= activeMenu('profil') ?>">
                                 <i class="nav-icon fa-regular fa-circle"></i>
                                 <p>Profil Perusahaan</p>
                             </a>
                         </li>
+                        <?php endif ?>
                         <li class="nav-item">
                             <a href="<?= site_url('rkl'); ?>" class="nav-link <?= activeMenu('rkl') ?>">
                                 <i class="nav-icon fa-regular fa-circle"></i>
