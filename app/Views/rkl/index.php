@@ -15,7 +15,9 @@
                 </form>
             </li>
             <li class="nav-item px-2">
-                <a class="btn btn-success" href="<?= site_url('rkl/new') ?>" role="button">Tambah</a>
+                <?php if (session('user')['group'] == 'user'): ?>
+                    <a class="btn btn-success" href="<?= site_url('rkl/new') ?>" role="button">Tambah</a>
+                <?php endif ?>
             </li>
         </ul>
     </div>
@@ -67,9 +69,9 @@
                             onsubmit="return confirm('Apakah anda yakin akan menghapus data ini?')">
                             <div class="btn-group btn-group-sm" role="group">
                                 <?php if ($row->status == 'diterima'): ?>
-                                    <button type="submit" class="btn btn-info">
-                                        tte
-                                    </button>
+                                    <a href="<?= site_url('rkl/tte/' . $row->lampiran); ?>" class="btn btn-primary" title="TTE">
+                                        <i class="fas fa-receipt"></i>
+                                    </a>
                                 <?php endif ?>
                                 <a href="<?= site_url('rkl/edit/' . $row->id); ?>" class="btn btn-warning">
                                     <i class="fa-solid fa-pencil"></i>

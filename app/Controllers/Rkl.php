@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use chillerlan\QRCode\QRCode;
+use Dompdf\Dompdf;
 
 class Rkl extends BaseController
 {
@@ -85,6 +87,44 @@ class Rkl extends BaseController
         $this->prodiModel->delete($id);
         session()->setFlashdata('success', 'Data berhasil dihapus');
         $this->response->redirect(site_url('prodi'));
+    }
+
+    public function getTte($id, $save = false)
+    {
+        $row = $this->rklModel
+            ->join('perusahaan', 'perusahaan.id = rkl.perusahaan_id')
+            ->where('lampiran', $id)
+            ->first();
+
+        if ($row->status != 'diterima') {
+            return '<h1>Anda belum memiliki ijin yang diterima dari surat ini</h1>';
+        }
+
+        $filename = date('y-m-d_H.i.s') . '-tte';
+
+        $dompdf = new Dompdf();
+        $qr     = (new QRCode)->render("https://sarilaha.web.id/rkl/tte/" . $row->lampiran);
+
+        $data = [
+            'row'    => $row,
+            'id_tte' => explode('.', $row->lampiran)[0],
+            'qr'     => $qr,
+        ];
+
+        $dompdf->getOptions()->setChroot(FCPATH);
+
+
+        $dompdf->loadHtml(view('rkl/tte', $data));
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+
+        if ($save) {
+            file_put_contents("upload/surat_tugas/$id.pdf", $dompdf->output());
+            file_put_contents("validasi/$id.pdf", $dompdf->output());
+        } else {
+            $dompdf->stream("$filename.pdf", ['Attachment' => 0]);
+            exit;
+        }
     }
 
 }
