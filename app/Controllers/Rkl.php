@@ -103,7 +103,7 @@ class Rkl extends BaseController
         $filename = date('y-m-d_H.i.s') . '-tte';
 
         $dompdf = new Dompdf();
-        $qr     = (new QRCode)->render("https://sarilaha.web.id/rkl/tte/" . $row->lampiran);
+        $qr     = (new QRCode)->render("https://sarilaha.web.id/index.php/rkl/tte/" . $row->lampiran);
 
         $data = [
             'row'    => $row,
