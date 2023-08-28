@@ -2,6 +2,10 @@
 
 <?= $this->section('content') ?>
 <h3>Dashboard</h3>
+
+
+
+<?php if (session('user')['group'] == 'admin'): ?>
 <!-- Small boxes (Stat box) -->
 <div class="row">
   <div class="col-lg-3 col-6">
@@ -85,48 +89,7 @@
   <!-- ./col -->
 </div>
 <!-- /.row -->
-<!-- Main row -->
-<!-- <div class="row">
-  <div class="col-lg-12">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">
-          <i class="fa-solid fa-chart-pie me-1"></i>
-          Jadwal Ujian
-        </h3>
-      </div>
-      <div class="card-body">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">NIM</th>
-              <th scope="col">Nama Mahasiswa</th>
-              <th scope="col">Dosen Penguji</th>
-              <th scope="col">Tanggal Ujian</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php for ($i = 1; $i <= 10; $i++): ?>
-              <tr>
-                <th scope="row">
-                  <?= $i; ?>
-                </th>
-                <td>
-                  <?= 'Mahasiswa ' . $i; ?>
-                </td>
-                <td>
-                  <?= 'Dosen ' . $i; ?>
-                </td>
-                <td>
-                  <?= date('Y-m-d h:i:s'); ?>
-                </td>
-              </tr>
-            <?php endfor; ?>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div> -->
-<!-- /.row (main row) -->
+<?php else: ?>
+  <h1>Selamat Datang</h1>
+<?php endif ?>
 <?= $this->endSection() ?>

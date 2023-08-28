@@ -195,9 +195,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= site_url('rkl'); ?>" class="nav-link <?= activeMenu('rkl') ?>">
+                            <a href="<?= site_url('logout'); ?>" class="nav-link">
                                 <i class="nav-icon fa-regular fa-circle"></i>
-                                <p>Perusahaan</p>
+                                <p>Logout</p>
                             </a>
                         </li>
                         <!-- <li class="nav-item">
