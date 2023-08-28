@@ -194,6 +194,12 @@
                                 <p>RKL/RPL</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url('rkl'); ?>" class="nav-link <?= activeMenu('rkl') ?>">
+                                <i class="nav-icon fa-regular fa-circle"></i>
+                                <p>Perusahaan</p>
+                            </a>
+                        </li>
                         <!-- <li class="nav-item">
                             <a href="<?= site_url('rkl'); ?>" class="nav-link <?= activeMenu('tte') ?>">
                                 <i class="nav-icon fa-regular fa-circle"></i>
