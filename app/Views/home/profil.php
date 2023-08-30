@@ -16,9 +16,9 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="jenisIndustri" class="col-sm-2 col-form-label">Jenis Industri</label>
+                <label for="jenisIndustri" class="col-sm-2 col-form-label">Jenis Usaha Kegiatan</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="jenisIndustri" placeholder="Jenis Industri"
+                    <input type="text" class="form-control" id="jenisIndustri" placeholder="Jenis Usaha Kegiatan"
                         name="jenis_industri" value="<?= $perusahaan->jenis_industri ?>">
                 </div>
             </div>
