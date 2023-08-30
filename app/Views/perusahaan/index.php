@@ -4,10 +4,10 @@
 
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Dosen</h3>
+        <h3 class="card-title">Perusahaan</h3>
         <ul class="nav nav-pills card-header-pills justify-content-end">
             <li class="nav-item">
-                <form action="<?= site_url("dosen"); ?>" method="get">
+                <form action="<?= site_url("perusahaan"); ?>" method="get">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Cari" name="q" value="<?= $q; ?>">
                         <button class="btn btn-primary" type="submit"><i class="fa-solid fa-search"></i></button>
@@ -15,7 +15,7 @@
                 </form>
             </li>
             <li class="nav-item px-2">
-                <a class="btn btn-success" href="<?= site_url('dosen/new') ?>" role="button">Tambah</a>
+                <a class="btn btn-success" href="<?= site_url('perusahaan/new') ?>" role="button">Tambah</a>
             </li>
         </ul>
     </div>
@@ -23,9 +23,10 @@
         <table class="table table-sm table-hover">
             <tr>
                 <th scope="col">No</th>
-                <th scope="col">NIP</th>
-                <th scope="col">Nama</th>
-                <th scope="col">Telepon</th>
+                <th scope="col">Nama Perusahaan</th>
+                <th scope="col">Alamat Perusahaan</th>
+                <th scope="col">Faks Perusahaan</th>
+                <th scope="col">Kota Perusahaan</th>
                 <th scope="col">Aksi</th>
             </tr>
             <?php foreach ($rows as $row): ?>
@@ -34,19 +35,25 @@
                         <?= empty($no) ? $no = 1 + (($pager->getCurrentPage() - 1) * $pager->GetPerPage()) : ++$no; ?>
                     </th>
                     <td>
-                        <?= $row->nip; ?>
+                        <?= $row->nama_perusahaan; ?>
                     </td>
                     <td>
-                        <?= $row->nama; ?>
+                        <?= $row->alamat_perusahaan; ?>
                     </td>
                     <td>
-                        <?= $row->telepon; ?>
+                        <?= $row->phone_perusahaan; ?>
                     </td>
                     <td>
-                        <form method="post" action="<?= site_url('dosen/delete/' . $row->id); ?>"
+                        <?= $row->faks_perusahaan; ?>
+                    </td>
+                    <td>
+                        <?= $row->kota_perusahaan; ?>
+                    </td>
+                    <td>
+                        <form method="post" action="<?= site_url('perusahaan/delete/' . $row->id); ?>"
                             onsubmit="return confirm('Apakah anda yakin akan menghapus data ini?')">
                             <div class="btn-group btn-group-sm" role="group">
-                                <a href="<?= site_url('dosen/edit/' . $row->id); ?>" class="btn btn-warning">
+                                <a href="<?= site_url('perusahaan/edit/' . $row->id); ?>" class="btn btn-warning">
                                     <i class="fa-solid fa-pencil"></i>
                                 </a>
                                 <button type="submit" class="btn btn-danger">

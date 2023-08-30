@@ -10,6 +10,7 @@
 <div class="row">
   <div class="col-lg-3 col-6">
     <!-- small box -->
+    <a href="<?= site_url('perusahaan') ?>">
     <div class="small-box text-bg-primary">
       <div class="inner">
         <h3>
@@ -25,6 +26,7 @@
         </path>
       </svg>
     </div>
+    </a>
   </div>
   <!-- ./col -->
   <div class="col-lg-3 col-6">
