@@ -285,12 +285,20 @@
                                 <p>Prodi</p>
                             </a>
                         </li> -->
+                        <?php if (session('user')['group'] != 'user'): ?>
+                        <li class="nav-item">
+                            <a href="<?= site_url('perusahaan'); ?>" class="nav-link <?= activeMenu('perusahaan') ?>">
+                                <i class="nav-icon fa-regular fa-circle"></i>
+                                <p>Perusahaan</p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="<?= site_url('user'); ?>" class="nav-link <?= activeMenu('user') ?>">
                                 <i class="nav-icon fa-regular fa-circle"></i>
                                 <p>User</p>
                             </a>
                         </li>
+                        <?php endif ?>
                     </ul>
                 </nav>
             </div>
