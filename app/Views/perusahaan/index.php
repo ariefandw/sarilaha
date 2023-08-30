@@ -23,12 +23,12 @@
         <table class="table table-sm table-hover">
             <tr>
                 <th scope="col">No</th>
-                <th scope="col">email</th>
+                <th scope="col">Email</th>
                 <th scope="col">Nama Perusahaan</th>
                 <th scope="col">Alamat Perusahaan</th>
                 <th scope="col">Faks Perusahaan</th>
                 <th scope="col">Kota Perusahaan</th>
-                <th scope="col">Aksi</th>
+                <!-- <th scope="col">Aksi</th> -->
             </tr>
             <?php foreach ($rows as $row): ?>
                 <tr>
@@ -53,7 +53,7 @@
                     <td>
                         <?= $row->kota_perusahaan; ?>
                     </td>
-                    <td>
+                    <!-- <td>
                         <form method="post" action="<?= site_url('perusahaan/delete/' . $row->id); ?>"
                             onsubmit="return confirm('Apakah anda yakin akan menghapus data ini?')">
                             <div class="btn-group btn-group-sm" role="group">
@@ -65,7 +65,7 @@
                                 </button>
                             </div>
                         </form>
-                    </td>
+                    </td> -->
                 </tr>
             <?php endforeach; ?>
         </table>
