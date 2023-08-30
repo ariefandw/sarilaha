@@ -23,6 +23,7 @@
         <table class="table table-sm table-hover">
             <tr>
                 <th scope="col">No</th>
+                <th scope="col">email</th>
                 <th scope="col">Nama Perusahaan</th>
                 <th scope="col">Alamat Perusahaan</th>
                 <th scope="col">Faks Perusahaan</th>
@@ -34,6 +35,9 @@
                     <th scope="row">
                         <?= empty($no) ? $no = 1 + (($pager->getCurrentPage() - 1) * $pager->GetPerPage()) : ++$no; ?>
                     </th>
+                    <td>
+                        <?= $row->email; ?>
+                    </td>
                     <td>
                         <?= $row->nama_perusahaan; ?>
                     </td>

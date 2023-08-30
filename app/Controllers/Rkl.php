@@ -21,7 +21,7 @@ class Rkl extends BaseController
     {
         $data = $this->request->getGet();
         $q    = $data['q'] ?? '';
-        $rkls = $this->rklModel->where("CONCAT(IFNULL(kegiatan, '')) LIKE '%{$q}%'");
+        $rkls = $this->rklModel->join('perusahaan', 'perusahaan.id = rkl.perusahaan_id')->where("CONCAT(IFNULL(kegiatan, '')) LIKE '%{$q}%'");
         if(session('user')['group'] == 'user') $rkls = $rkls->where('perusahaan_id', session('user')['profile']->id);
         $rkls = $rkls->paginate(15);
         $data = [
@@ -96,7 +96,7 @@ class Rkl extends BaseController
             ->where('lampiran', $id)
             ->first();
 
-        if ($row->status ?? '' != 'diterima') {
+        if (($row->status ?? '') != 'diterima') {
             return '<h1>Anda belum memiliki ijin yang diterima dari surat ini</h1>';
         }
 

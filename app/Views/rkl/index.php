@@ -25,6 +25,7 @@
         <table class="table table-sm table-hover">
             <tr>
                 <th scope="col">No</th>
+                <th scope="col">Nama Perusahaan</th>
                 <th scope="col">Tahapan</th>
                 <th scope="col">Kegiatan</th>
                 <th scope="col">Sumber Dampak</th>
@@ -37,6 +38,9 @@
                     <th scope="row">
                         <?= empty($no) ? $no = 1 + (($pager->getCurrentPage() - 1) * $pager->GetPerPage()) : ++$no; ?>
                     </th>
+                    <td>
+                        <?= $row->nama_perusahaan; ?>
+                    </td>
                     <td>
                         <?= $row->tahapan; ?>
                     </td>
@@ -67,7 +71,7 @@
                     <td>
                         <form method="post" action="<?= site_url('rkl/delete/' . $row->id); ?>"
                             onsubmit="return confirm('Apakah anda yakin akan menghapus data ini?')">
-                            <div class="btn-group btn-group-sm" role="group">
+                            <div class="btn-group btn-group-sm" role="group">          
                                 <?php if ($row->status == 'diterima'): ?>
                                     <a href="<?= site_url('rkl/tte/' . $row->lampiran); ?>" class="btn btn-primary" title="TTE">
                                         <i class="fas fa-receipt"></i>
