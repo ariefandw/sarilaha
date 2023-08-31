@@ -96,7 +96,7 @@ class Rkl extends BaseController
             ->where('lampiran', $id)
             ->first();
 
-        if ($row->status != 'diterima') {
+        if ($row->status ?? '' != 'diterima') {
             return '<h1>Anda belum memiliki ijin yang diterima dari surat ini</h1>';
         }
 
