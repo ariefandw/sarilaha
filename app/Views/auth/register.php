@@ -148,9 +148,9 @@
                 </div>
 
                 <div class="row mb-2">
-                    <label class="col-sm-4 col-form-label">Jenis Industri</label>
+                    <label class="col-sm-4 col-form-label">Jenis Usaha Kegiatan</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" name="jenis_industri" placeholder="Jenis Industri"
+                        <input type="text" class="form-control" name="jenis_industri" placeholder="Jenis Usaha Kegiatan"
                             value="<?= old('jenis_industri') ?>" />
                     </div>
                 </div>

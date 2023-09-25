@@ -4,11 +4,11 @@
 <?= $this->section('content') ?>
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Dosen</h3>
+        <h3 class="card-title">Perusahaan</h3>
         <div class="card-tools"></div>
     </div>
     <div class="card-body">
-        <form method="post" action="<?= site_url('dosen/' . $action . ($action == 'update' ? '/' . $row->id : '')); ?>">
+        <form method="post" action="<?= site_url('perusahaan/' . $action . ($action == 'update' ? '/' . $row->id : '')); ?>">
             <div class="mb-3">
                 <label class="form-label">NIP</label>
                 <input type="text" class="form-control" name="nip" value="<?= $row->nip; ?>">
