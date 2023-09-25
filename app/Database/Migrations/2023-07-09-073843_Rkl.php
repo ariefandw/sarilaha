@@ -24,15 +24,15 @@ class Rkl extends Migration
             ],
             'kegiatan'               => [
                 'type'       => 'VARCHAR',
-                'constraint' => 100,
+                'constraint' => 255,
             ],
             'sumber_dampak'          => [
                 'type'       => 'VARCHAR',
-                'constraint' => 100,
+                'constraint' => 255,
             ],
             'jenis_limbah'           => [
                 'type'       => 'VARCHAR',
-                'constraint' => 100,
+                'constraint' => 255,
             ],
             'besaran_dampak'         => [
                 'type' => 'TEXT',
@@ -48,11 +48,15 @@ class Rkl extends Migration
             ],
             'cara_pemantauan'        => [
                 'type'       => 'VARCHAR',
-                'constraint' => 100,
+                'constraint' => 255,
+            ],
+            'sertifikat_hasil_uji'   => [
+                'type'       => 'VARCHAR',
+                'constraint' => 255,
             ],
             'tolok_ukur_pemantauan'  => [
                 'type'       => 'VARCHAR',
-                'constraint' => 100,
+                'constraint' => 255,
             ],
             'lampiran'               => [
                 'type'       => 'VARCHAR',

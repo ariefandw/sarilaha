@@ -22,7 +22,8 @@ class Rkl extends BaseController
         $data = $this->request->getGet();
         $q    = $data['q'] ?? '';
         $rkls = $this->rklModel->where("CONCAT(IFNULL(kegiatan, '')) LIKE '%{$q}%'");
-        if(session('user')['group'] == 'user') $rkls = $rkls->where('perusahaan_id', session('user')['profile']->id);
+        if (session('user')['group'] == 'user')
+            $rkls = $rkls->where('perusahaan_id', session('user')['profile']->id);
         $rkls = $rkls->paginate(15);
         $data = [
             'rows'  => $rkls,
@@ -45,13 +46,13 @@ class Rkl extends BaseController
     {
         $data = $this->request->getPost();
 
-        $file    = $this->request->getFile('lampiran');
+        $file    = $this->request->getFile('sertifikat_hasil_uji');
         $newName = (new \Hidehalo\Nanoid\Client())->generateId() . '.' . $file->getExtension();
         $file->move(ROOTPATH . 'public/uploads', $newName);
 
-        $data['lampiran']      = $newName;
-        $data['status']        = 'baru';
-        $data['perusahaan_id'] = session('user')['group'] == 'admin' ? 0 : session('user')['profile']->id;
+        $data['sertifikat_hasil_uji'] = $newName;
+        $data['status']               = 'baru';
+        $data['perusahaan_id']        = session('user')['group'] == 'admin' ? 0 : session('user')['profile']->id;
         $this->rklModel->insert($data);
         session()->setFlashdata('success', 'Data berhasil disimpan');
         $this->response->redirect(site_url('rkl'));
@@ -70,11 +71,18 @@ class Rkl extends BaseController
     {
         $data = $this->request->getPost();
 
-        $file = $this->request->getFile('lampiran');
+        // $file = $this->request->getFile('lampiran');
+        // if ($file->isValid() && !$file->getError()) {
+        //     $newName = (new \Hidehalo\Nanoid\Client())->generateId() . '.' . $file->getExtension();
+        //     $file->move(ROOTPATH . 'public/uploads', $newName);
+        //     $data['lampiran'] = $newName;
+        // }
+
+        $file = $this->request->getFile('sertifikat_hasil_uji');
         if ($file->isValid() && !$file->getError()) {
             $newName = (new \Hidehalo\Nanoid\Client())->generateId() . '.' . $file->getExtension();
             $file->move(ROOTPATH . 'public/uploads', $newName);
-            $data['lampiran'] = $newName;
+            $data['sertifikat_hasil_uji'] = $newName;
         }
 
         $this->rklModel->update($id, $data);
@@ -125,6 +133,41 @@ class Rkl extends BaseController
             $dompdf->stream("$filename.pdf", ['Attachment' => 0]);
             exit;
         }
+    }
+
+    public function getPdf($id)
+    {
+        $row = $this->rklModel
+            ->join('perusahaan', 'perusahaan.id = rkl.perusahaan_id')
+            ->where('rkl.id', $id)
+            ->first();
+
+        $filename = date('y-m-d_H.i.s') . '-tte';
+
+        $dompdf = new Dompdf();
+        $qr     = (new QRCode)->render("https://sarilaha.web.id/index.php/rkl/tte/" . $row->lampiran);
+
+        $data = [
+            'row'    => $row,
+            'id_tte' => explode('.', $row->lampiran)[0],
+            'qr'     => $qr,
+        ];
+
+        $dompdf->getOptions()->setChroot(FCPATH);
+
+
+        $dompdf->loadHtml(view('rkl/pdf', $data));
+        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->render();
+        $dompdf->stream("$filename.pdf", ['Attachment' => 0]);
+
+        // if ($save) {
+        //     file_put_contents("upload/surat_tugas/$id.pdf", $dompdf->output());
+        //     file_put_contents("validasi/$id.pdf", $dompdf->output());
+        // } else {
+        //     $dompdf->stream("$filename.pdf", ['Attachment' => 0]);
+        //     exit;
+        // }
     }
 
 }

@@ -27,16 +27,15 @@
                 <th scope="col">No</th>
                 <th scope="col">Tahapan</th>
                 <th scope="col">Kegiatan</th>
-                <th scope="col">Sumber Dampak</th>
-                <th scope="col">Jenis Limbah</th>
+                <th scope="col">Sertifikat Hasil Uji</th>
                 <th scope="col">Status</th>
                 <th scope="col">Aksi</th>
             </tr>
             <?php foreach ($rows as $row): ?>
                 <tr>
-                    <th scope="row">
+                    <td scope="row">
                         <?= empty($no) ? $no = 1 + (($pager->getCurrentPage() - 1) * $pager->GetPerPage()) : ++$no; ?>
-                    </th>
+                    </td>
                     <td>
                         <?= $row->tahapan; ?>
                     </td>
@@ -44,10 +43,9 @@
                         <?= $row->kegiatan; ?>
                     </td>
                     <td>
-                        <?= $row->sumber_dampak; ?>
-                    </td>
-                    <td>
-                        <?= $row->jenis_limbah; ?>
+                        <?php if ($row->sertifikat_hasil_uji ?? false): ?>
+                            <a target="__blank" href="<?= base_url('uploads/' . $row->sertifikat_hasil_uji) ?>">download</a>
+                        <?php endif ?>
                     </td>
                     <td>
                         <?php if ($row->status == 'diterima'): ?>
@@ -68,6 +66,11 @@
                         <form method="post" action="<?= site_url('rkl/delete/' . $row->id); ?>"
                             onsubmit="return confirm('Apakah anda yakin akan menghapus data ini?')">
                             <div class="btn-group btn-group-sm" role="group">
+                                <?php //if ($row->lampiran ?? false): ?>
+                                <a target="__blank" href="<?= base_url('rkl/pdf/' . $row->id) ?>" class="btn btn-success">
+                                    <i class="fa-solid fa-file"></i>
+                                </a>
+                                <?php //endif ?>
                                 <?php if ($row->status == 'diterima'): ?>
                                     <a href="<?= site_url('rkl/tte/' . $row->lampiran); ?>" class="btn btn-primary" title="TTE">
                                         <i class="fas fa-receipt"></i>

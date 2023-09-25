@@ -73,12 +73,7 @@
 <body>
     <div class="container">
         <div id="smiley">⚙️</div>
-        <h1>Under Maintenance</h1>
-        <p>Maaf, saat ini kami sedang dalam perawatan.<br>Silakan cek kembali beberapa saat lagi atau hubungi
-            <a href="https://wa.me/6281392651260" target="__blank" style="color:cyan;">
-                Eko Priyanto</a>
-            untuk informasi lebih lanjut.
-        </p>
+        <h1>Oops...</h1>
     </div>
 
     <script>

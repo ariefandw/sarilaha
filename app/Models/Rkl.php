@@ -18,6 +18,7 @@ class Rkl extends Model
         'cara_pengelolaan',
         'tolok_ukur_pengelolaan',
         'cara_pemantauan',
+        'sertifikat_hasil_uji',
         'tolok_ukur_pemantauan',
         'lampiran',
         'drive_file_id',

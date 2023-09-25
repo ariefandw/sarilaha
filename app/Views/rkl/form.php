@@ -41,15 +41,19 @@
             <div class="row mb-3">
                 <label for="sumberDampak" class="col-sm-2 col-form-label">Sumber Dampak</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="sumber_dampak" placeholder="Sumber Dampak"
-                        value="<?= $row->sumber_dampak ?>">
+                    <textarea id="sumber_dampak" class="form-control" name="sumber_dampak" rows="3"
+                        placeholder="Sumber Dampak">
+                        <?= $row->sumber_dampak ?>
+                    </textarea>
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="jenisLimbah" class="col-sm-2 col-form-label">Jenis Limbah/Cemaran</label>
+                <label for="jenisLimbah" class="col-sm-2 col-form-label">Jenis Dampak</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="jenis_limbah" placeholder="Jenis Limbah/Cemaran"
-                        value="<?= $row->jenis_limbah ?>">
+                    <textarea id="jenis_limbah" class="form-control" name="jenis_limbah" rows="3"
+                        placeholder="Jenis Dampak">
+                        <?= $row->jenis_limbah ?>
+                    </textarea>
                 </div>
             </div>
             <div class="row mb-3">
@@ -82,18 +86,31 @@
             <div class="row mb-3">
                 <label for="caraPemantauan" class="col-sm-2 col-form-label">Cara Pemantauan</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="cara_pemantauan" placeholder="Cara Pemantauan"
-                        value="<?= $row->cara_pemantauan ?>">
+                    <textarea id="cara_pemantauan" class="form-control" name="cara_pemantauan" rows="3"
+                        placeholder="Cara Pemantauan">
+                        <?= $row->cara_pemantauan ?>
+                    </textarea>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="sertifikat_hasil_uji" class="col-sm-2 col-form-label">Sertifikat Hasil Uji</label>
+                <div class="col-sm-10">
+                    <?php if ($row->sertifikat_hasil_uji ?? false): ?>
+                        <a target="__blank" href="<?= base_url('uploads/' . $row->sertifikat_hasil_uji) ?>">download</a>
+                    <?php endif ?>
+                    <input class="form-control" type="file" name="sertifikat_hasil_uji">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="tolokUkurPemantauan" class="col-sm-2 col-form-label">Tolok Ukur Pemantauan</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="tolok_ukur_pemantauan"
-                        placeholder="Tolok Ukur Pemantauan" value="<?= $row->tolok_ukur_pemantauan ?>">
+                    <textarea id="tolok_ukur_pemantauan" class="form-control" name="tolok_ukur_pemantauan" rows="3"
+                        placeholder="Tolok Ukur Pemantauan">
+                        <?= $row->tolok_ukur_pemantauan ?>
+                    </textarea>
                 </div>
             </div>
-            <div class="row mb-3">
+            <!-- <div class="row mb-3">
                 <label for="lampiran" class="col-sm-2 col-form-label">Lampiran</label>
                 <div class="col-sm-10">
                     <?php if ($row->lampiran): ?>
@@ -101,7 +118,7 @@
                     <?php endif ?>
                     <input class="form-control" type="file" name="lampiran">
                 </div>
-            </div>
+            </div> -->
             <?php if (session('user')['group'] == 'admin'): ?>
                 <div class="row mb-3">
                     <label for="tahapan" class="col-sm-2 col-form-label">Status</label>
@@ -129,6 +146,16 @@
 <script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
 <script>
     ClassicEditor
+        .create(document.querySelector('#sumber_dampak'))
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor
+        .create(document.querySelector('#jenis_limbah'))
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor
         .create(document.querySelector('#besaran_dampak'))
         .catch(error => {
             console.error(error);
@@ -140,6 +167,16 @@
         });
     ClassicEditor
         .create(document.querySelector('#tolok_ukur_pengelolaan'))
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor
+        .create(document.querySelector('#cara_pemantauan'))
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor
+        .create(document.querySelector('#tolok_ukur_pemantauan'))
         .catch(error => {
             console.error(error);
         });
